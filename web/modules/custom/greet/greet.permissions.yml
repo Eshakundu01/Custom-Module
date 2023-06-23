@@ -1,0 +1,11 @@
+access permission:
+  description: 'Allows users to view the content. This is a static permission.'
+  title: 'View the Page'
+  restrict access: TRUE
+
+view permission:
+  title: 'Static Permission'
+  description: 'This is the second static permission.'
+
+permission_callbacks:
+  - \Drupal\greet\GreetPermissions::permissions
