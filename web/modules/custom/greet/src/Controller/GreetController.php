@@ -42,8 +42,8 @@ class GreetController extends ControllerBase {
    * Adds new markup content that is going to be displayed with the current
    * users email address.
    * 
-   * @return mixed
-   *   The result as per the access is returned.
+   * @return array
+   *   The markup is returned.
    */
   public function add() {
     if (\Drupal::currentUser()->hasPermission('add greet permission')) {
