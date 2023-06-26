@@ -1,4 +1,4 @@
-greet.overview:
+greet.view:
   path: '/greet'
   defaults:
     _controller: 'Drupal\greet\Controller\GreetController::view'
@@ -6,7 +6,7 @@ greet.overview:
   requirements:
     _permission: 'access content'
 
-greet.view:
+greet.overview:
   path: '/greet/access'
   defaults:
     _controller: 'Drupal\greet\Controller\GreetController::overview'
