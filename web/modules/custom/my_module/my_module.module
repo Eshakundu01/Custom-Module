@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * This file is used for implementing hooks.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_cron()
+ */
+function my_module_cron() {
+  \Drupal::messenger()->addMessage("Successfully run cron from my module hook cron");
+}
+
+/**
+ * Implements hook_help().
+ */
+function my_module_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.my_module':
+      $output = '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The My Module is used to test hooks by implementing them. For more information, see the <a href=":hook-documentation">online documentation for Hooks provided by core</a>.', [':hook-documentation' => 'https://api.drupal.org/api/drupal/core%21core.api.php/group/hooks/10']) . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_track_count().
+ */
+function my_module_track_count($current_count, NodeInterface $node) {
+  if ($current_count === 2) {
+    \Drupal::messenger()->addMessage(t('Viewed the node %title 2 times.', ['%title' => $node->label()]));
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function my_module_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // Count the number of times the current node has been viewed in a session.
+  $session = \Drupal::request()->getSession();
+  $counts = $session->get('hooks_example.view_counts', array());
+  if (!isset($counts[$entity->id()])) {
+    $counts[$entity->id()] = 1;
+  } else {
+    $counts[$entity->id()]++;
+  }
+  $session->set('hooks_example.view_counts', $counts);
+
+  // Invoke a hook to alert other modules that the count was updated.
+  $module_handler = \Drupal::moduleHandler();
+
+  // The hook_track_count() is being invoked.
+  $module_handler->invokeAll('track_count', array($counts[$entity->id()], $entity));
+
+  // Display the number of times the user has viewed the node.
+  $build['view_count'] = array(
+    '#markup' => '<p>' . t('You have viewed this node @total times this session.', array('@total' => $counts[$entity->id()])) . '</p>',
+    '#cache' => array(
+      'max-age' => 0,
+    ),
+  );
+}
