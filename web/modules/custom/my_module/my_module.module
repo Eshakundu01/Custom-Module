@@ -61,8 +61,8 @@ function my_module_node_view(array &$build, EntityInterface $entity, EntityViewD
   // Display the number of times the user has viewed the node.
   $build['view_count'] = array(
     '#markup' => '<p>' . t('You have viewed this node @total times this session.', array('@total' => $counts[$entity->id()])) . '</p>',
-    '#cache' => array(
+    '#cache' => [
       'max-age' => 0,
-    ),
+    ],
   );
 }
