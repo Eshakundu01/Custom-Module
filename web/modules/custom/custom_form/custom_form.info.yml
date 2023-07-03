@@ -1,0 +1,6 @@
+name: Custom Form Module
+type: module
+core_version_requirement: ^9 || ^10
+description: 'This module is used to test and explore the Form API.'
+package: Custom
+configure: custom_form.settings
