@@ -1,0 +1,6 @@
+user_role.welcome:
+  path: '/custom-welcome-page'
+  defaults:
+    _controller: 'Drupal\user_role\Controller\UserRoleController::content'
+  requirements:
+    _permission: 'access content'

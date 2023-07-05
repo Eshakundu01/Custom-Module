@@ -1,0 +1,22 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+/**
+ * Implements hook_form_alter().
+ */
+function user_role_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    // Alter login form and add own custom submit handler.
+    case 'user_login_form':
+      $form['#submit'][] = '_user_role_user_login_form_submit';
+      break;
+  }
+}
+
+/**
+ * Custom submit handler for login form.
+ */
+function _user_role_user_login_form_submit($form, FormStateInterface $form_state) {
+  // Set redirect to login form.
+  $form_state->setRedirect('user_role.welcome');
+}
