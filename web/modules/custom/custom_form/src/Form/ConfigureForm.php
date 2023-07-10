@@ -67,6 +67,36 @@ class ConfigureForm extends ConfigFormBase {
       '#default_value' => $config->get('gender'),
     ];
 
+    $form['country'] = [
+      '#type' => 'select',
+      '#title' => 'Choose your country',
+      '#options' => [
+        'australia' => $this->t('Australia'),
+        'bangladesh' => $this->t('Bangladesh'),
+        'china' => $this->t('China'),
+        'india' => $this->t('India'),
+        'greece' => $this->t('	Greece'),
+        'hungary' => $this->t('Hungary'),
+        'japan' => $this->t('Japan'),
+      ],
+      '#default_value' => $config->get('country'),
+      '#attributes' => [
+        'id' => 'location_details',
+      ],
+    ];
+
+    $form['pin'] = [
+      '#type' => 'number',
+      '#title' => 'Pincode',
+      '#placeholder' => 'Enter your pincode',
+      '#default_value' => $config->get('pin'),
+      '#states' => [
+        'visible' => [
+          ':input[id="location_details"]' => ['value' => 'india'],
+        ],
+      ],
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -105,6 +135,8 @@ class ConfigureForm extends ConfigFormBase {
       ->set('phone_number', $form_state->getValue('phone_number'))
       ->set('email', $form_state->getValue('email'))
       ->set('gender', $form_state->getValue('gender'))
+      ->set('country', $form_state->getValue('country'))
+      ->set('pin', $form_state->getValue('pin'))
       ->save();
   }
 }
