@@ -1,0 +1,7 @@
+name: Analysis
+type: module
+core_version_requirement: ^9 || ^10
+description: 'Try-out to validate the dependencies are include or not.'
+package: Custom
+dependencies:
+  - drupal:node
