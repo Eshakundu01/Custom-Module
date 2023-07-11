@@ -67,6 +67,36 @@ class ConfigureForm extends ConfigFormBase {
       '#default_value' => $config->get('gender'),
     ];
 
+    $form['country'] = [
+      '#type' => 'select',
+      '#title' => 'Choose your country',
+      '#options' => [
+        'australia' => $this->t('Australia'),
+        'bangladesh' => $this->t('Bangladesh'),
+        'china' => $this->t('China'),
+        'india' => $this->t('India'),
+        'greece' => $this->t('Greece'),
+        'hungary' => $this->t('Hungary'),
+        'japan' => $this->t('Japan'),
+      ],
+      '#default_value' => $config->get('country'),
+      '#attributes' => [
+        'id' => 'location_details',
+      ],
+    ];
+
+    $form['pin'] = [
+      '#type' => 'number',
+      '#title' => 'Pincode',
+      '#placeholder' => 'Enter your pincode',
+      '#default_value' => $config->get('pin'),
+      '#states' => [
+        'visible' => [
+          ':input[id="location_details"]' => ['value' => 'india'],
+        ],
+      ],
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -75,7 +105,7 @@ class ConfigureForm extends ConfigFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     // The array consists of public domain that are allowed.
-    $domain = ['gmail','yahoo','outlook'];
+    $domain = ['gmail', 'yahoo', 'outlook'];
 
     // The value received from the email input field.
     $mail = $form_state->getValue('email');
@@ -91,7 +121,8 @@ class ConfigureForm extends ConfigFormBase {
     // Validates the email format, the domain and ends with '.com'.
     if (!(filter_var($mail, FILTER_VALIDATE_EMAIL))) {
       $form_state->setErrorByName('email', $this->t('Invalid email address.'));
-    } elseif (!(in_array($domain_part[0], $domain) && str_ends_with($mail, '.com'))) {
+    }
+    elseif (!(in_array($domain_part[0], $domain) && str_ends_with($mail, '.com'))) {
       $form_state->setErrorByName('email', $this->t('Only yahoo, gmail, outlook must be used ending with .com'));
     }
   }
@@ -105,6 +136,9 @@ class ConfigureForm extends ConfigFormBase {
       ->set('phone_number', $form_state->getValue('phone_number'))
       ->set('email', $form_state->getValue('email'))
       ->set('gender', $form_state->getValue('gender'))
+      ->set('country', $form_state->getValue('country'))
+      ->set('pin', $form_state->getValue('pin'))
       ->save();
   }
+
 }
