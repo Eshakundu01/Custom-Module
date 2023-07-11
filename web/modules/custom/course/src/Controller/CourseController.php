@@ -1,15 +1,11 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\course\Controller\CourseController.
- */
-
 namespace Drupal\course\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Session\AccountInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Returns the route for the course module.
@@ -17,9 +13,31 @@ use Drupal\Core\Session\AccountInterface;
 class CourseController extends ControllerBase {
 
   /**
+   * The current user is accessed.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $user;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(AccountInterface $account) {
+    $this->user = $account;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static($container->get('current_user'));
+  }
+
+  /**
    * Displays a page according to the render array.
    *
    * @return array
+   *   The markup is returned.
    */
   public function preview() {
     return [
@@ -31,15 +49,12 @@ class CourseController extends ControllerBase {
   /**
    * Checks access for a specific request.
    *
-   * @param \Drupal\Core\Session\AccountInterface $account
-   *   Run access checks for this account.
-   *
    * @return \Drupal\Core\Access\AccessResultInterface
    *   The access result.
    */
-  public function access(AccountInterface $account) {
+  public function access() {
     // Checks permissions.
-    return AccessResult::allowedIf($account->hasPermission('access the custom page'));
+    return AccessResult::allowedIf($this->user->hasPermission('access the custom page'));
   }
 
   /**
@@ -51,11 +66,10 @@ class CourseController extends ControllerBase {
    *   Render-able array.
    */
   public function content($number) {
-
     return [
       '#theme' => 'course_parameter',
       '#points' => $number
-    ];
-    
+    ];   
   }
+
 }
