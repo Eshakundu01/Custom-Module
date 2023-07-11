@@ -1,0 +1,23 @@
+greet.view:
+  path: '/greet'
+  defaults:
+    _controller: 'Drupal\greet\Controller\GreetController::view'
+    _title: 'Hi!'
+  requirements:
+    _permission: 'access content'
+
+greet.overview:
+  path: '/greet/access'
+  defaults:
+    _controller: 'Drupal\greet\Controller\GreetController::overview'
+    _title: 'Hello'
+  requirements:
+    _permission: 'access permission'
+
+greet.add:
+  path: '/greet/add'
+  defaults:
+    _controller: 'Drupal\greet\Controller\GreetController::add'
+    _title: 'Hi!!!!'
+  requirements:
+    _permission: 'add greet permission'
