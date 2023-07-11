@@ -62,14 +62,15 @@ class CourseController extends ControllerBase {
    *
    * @param int $number
    *   The value provided as parameter in the URI.
+   *
    * @return array
    *   Render-able array.
    */
   public function content($number) {
     return [
       '#theme' => 'course_parameter',
-      '#points' => $number
-    ];   
+      '#points' => $number,
+    ];
   }
 
 }
