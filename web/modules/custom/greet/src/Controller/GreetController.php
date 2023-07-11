@@ -1,16 +1,36 @@
 <?php
-/**
- * @file
- * Contains \Drupal\greet\Controller\GreetController.
- */
+
 namespace Drupal\greet\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Session\AccountInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Returns responses for Greet routes.
  */
 class GreetController extends ControllerBase {
+
+  /**
+   * The account details related to a user.
+   *
+   * @var \Drupal\Core\Session\AccountInterface
+   */
+  protected $user;
+
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct(AccountInterface $account) {
+    $this->user = $account;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container) {
+    return new static($container->get('current_user'));
+  }
 
   /**
    * Displays the markup.
@@ -21,7 +41,7 @@ class GreetController extends ControllerBase {
   public function view() {
     return [
       '#type' => 'markup',
-      '#markup' => 'Hello World',
+      '#markup' => $this->t('Hello World'),
     ];
   }
 
@@ -32,25 +52,26 @@ class GreetController extends ControllerBase {
    *   The markup content is returned.
    */
   public function overview() {
+    $user_name = $this->user->getDisplayName();
     return [
       '#type' => 'markup',
-      '#markup' => 'Hello '. \Drupal::currentUser()->getDisplayName(),
+      '#markup' => $this->t('Hello @name', ['@name' => $user_name]),
     ];
   }
 
   /**
-   * Adds new markup content that is going to be displayed with the current
-   * users email address.
-   * 
+   * Displays user's email address as markup.
+   *
    * @return array
    *   The markup is returned.
    */
   public function add() {
-    if (\Drupal::currentUser()->hasPermission('add greet permission')) {
+    if ($this->user->hasPermission('add greet permission')) {
       return [
         '#type' => 'markup',
-        '#markup' => 'Welcome ' . \Drupal::currentUser()->getEmail(),
+        '#markup' => 'Welcome ' . $this->user->getEmail(),
       ];
     }
   }
+
 }
