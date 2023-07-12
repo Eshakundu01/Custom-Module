@@ -1,0 +1,5 @@
+name: My Module
+type: module
+core_version_requirement: ^9 || ^10
+description: 'Module for testing and invoking hooks.'
+package: Custom

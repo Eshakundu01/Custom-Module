@@ -7,6 +7,7 @@ dependencies:
   module:
     - comment
     - contact
+    - file
     - filter
     - greet
     - search
@@ -16,7 +17,7 @@ _core:
   default_config_hash: I44QAB4es39lNzMQWiJLq2dfjX7VRSOzT_5KzAcUq_M
 id: authenticated
 label: 'Authenticated user'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
   - 'access comments'
@@ -24,6 +25,7 @@ permissions:
   - 'access permission'
   - 'access shortcuts'
   - 'access site-wide contact form'
+  - 'delete own files'
   - 'post comments'
   - 'search content'
   - 'skip comment approval'
