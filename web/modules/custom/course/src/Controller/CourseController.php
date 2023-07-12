@@ -20,7 +20,10 @@ class CourseController extends ControllerBase {
   protected $user;
 
   /**
-   * {@inheritdoc}
+   * Constructs a new CourseController object.
+   *
+   * @param AccountInterface $account
+   *   The account service is used.
    */
   public function __construct(AccountInterface $account) {
     $this->user = $account;
