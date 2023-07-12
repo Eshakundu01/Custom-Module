@@ -21,7 +21,7 @@ _core:
   default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
 id: content_editor
 label: 'Content editor'
-weight: 2
+weight: -7
 is_admin: false
 permissions:
   - 'access administration pages'
@@ -30,6 +30,7 @@ permissions:
   - 'access files overview'
   - 'access toolbar'
   - 'access tour'
+  - 'add greet permission'
   - 'administer url aliases'
   - 'create article content'
   - 'create page content'
@@ -37,15 +38,14 @@ permissions:
   - 'create url aliases'
   - 'delete article revisions'
   - 'delete own article content'
+  - 'delete own files'
   - 'delete own page content'
   - 'delete page revisions'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
   - 'edit terms in tags'
-  - 'greet permission 0'
   - 'revert all revisions'
   - 'view all revisions'
   - 'view own unpublished content'
-  - 'view permission'
   - 'view the administration theme'

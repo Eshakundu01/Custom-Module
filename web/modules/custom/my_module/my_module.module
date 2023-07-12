@@ -11,7 +11,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
 
 /**
- * Implements hook_cron()
+ * Implements hook_cron().
  */
 function my_module_cron() {
   \Drupal::messenger()->addMessage("Successfully run cron from my module hook cron");
