@@ -8,7 +8,7 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_cron()
+ * Implements hook_form_alter().
  */
 function custom_form_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'custom_form_settings') {
