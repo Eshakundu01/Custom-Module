@@ -1,0 +1,22 @@
+custom_form.settings:
+  type: config_object
+  label: 'Custom Form Settings'
+  mapping:
+    full_name:
+      type: string
+      label: 'Full Name of the User'
+    phone_number:
+      type: string
+      label: 'Indian contact number'
+    email:
+      type: string
+      label: 'Email address of the User'
+    gender:
+      type: string
+      label: 'Gender of the User'
+    country:
+      type: string
+      label: 'The country where the user lives'
+    pin:
+      type: integer
+      label: 'Pincode of Indian Users'
