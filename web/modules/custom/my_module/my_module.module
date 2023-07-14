@@ -5,13 +5,13 @@
  * This file is used for implementing hooks.
  */
 
-use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\NodeInterface;
 
 /**
- * Implements hook_cron()
+ * Implements hook_cron().
  */
 function my_module_cron() {
   \Drupal::messenger()->addMessage("Successfully run cron from my module hook cron");
@@ -44,10 +44,11 @@ function my_module_track_count($current_count, NodeInterface $node) {
 function my_module_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
   // Count the number of times the current node has been viewed in a session.
   $session = \Drupal::request()->getSession();
-  $counts = $session->get('hooks_example.view_counts', array());
+  $counts = $session->get('hooks_example.view_counts', []);
   if (!isset($counts[$entity->id()])) {
     $counts[$entity->id()] = 1;
-  } else {
+  }
+  else {
     $counts[$entity->id()]++;
   }
   $session->set('hooks_example.view_counts', $counts);
@@ -56,13 +57,13 @@ function my_module_node_view(array &$build, EntityInterface $entity, EntityViewD
   $module_handler = \Drupal::moduleHandler();
 
   // The hook_track_count() is being invoked.
-  $module_handler->invokeAll('track_count', array($counts[$entity->id()], $entity));
+  $module_handler->invokeAll('track_count', [$counts[$entity->id()], $entity]);
 
   // Display the number of times the user has viewed the node.
-  $build['view_count'] = array(
-    '#markup' => '<p>' . t('You have viewed this node @total times this session.', array('@total' => $counts[$entity->id()])) . '</p>',
+  $build['view_count'] = [
+    '#markup' => '<p>' . t('You have viewed this node @total times this session.', ['@total' => $counts[$entity->id()]]) . '</p>',
     '#cache' => [
       'max-age' => 0,
     ],
-  );
+  ];
 }
