@@ -1,0 +1,21 @@
+uuid: f84703fc-2932-44f7-ba96-e55da9efaa26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pigment
+    - node.type.article
+  module:
+    - chroma
+id: node.article.field_pigment
+field_name: field_pigment
+entity_type: node
+bundle: article
+label: Pigment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: colour

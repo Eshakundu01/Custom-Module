@@ -1,0 +1,7 @@
+name: Colour Selector Module
+type: module
+core_version_requirement: ^10
+description: 'This module provides a field for choosing colour.'
+package: Custom fields
+dependencies:
+  - drupal:field
