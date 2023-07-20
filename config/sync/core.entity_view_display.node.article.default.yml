@@ -44,9 +44,9 @@ content:
     type: chroma_background
     label: above
     settings:
-      rgb_value: 0
+      rgb_value: false
     third_party_settings: {  }
-    weight: 3
+    weight: 5
     region: content
   field_tags:
     type: entity_reference_label
