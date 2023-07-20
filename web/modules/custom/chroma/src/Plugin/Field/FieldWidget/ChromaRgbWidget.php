@@ -25,9 +25,9 @@ class ChromaRgbWidget extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
 
-    $hex_value = isset($items[$delta]->value) ? $items[$delta]->value : NULL;
+    $hex_value = isset($items[$delta]->value) ? $items[$delta]->value : '';
 
-    $default_colour = isset($hex_value) ? $this->getDefaultValue($hex_value) : NULL;
+    $default_colour = isset($hex_value) ? $this->getDefaultValue($hex_value) : '';
 
     $element += [
       '#type' => 'fieldset',

@@ -24,7 +24,7 @@ class ChromaColourPick extends WidgetBase {
    * {@inheritdoc}
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
-    $colour_value = isset($items[$delta]->value) ? $items[$delta]->value : NULL;
+    $colour_value = isset($items[$delta]->value) ? $items[$delta]->value : '';
     $element += [
       '#type' => 'color',
       '#title' => $this->t('Colour Picker'),
