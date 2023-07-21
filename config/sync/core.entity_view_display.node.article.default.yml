@@ -41,10 +41,10 @@ content:
     weight: 0
     region: content
   field_pigment:
-    type: chroma_background
+    type: chroma_text
     label: above
     settings:
-      rgb_value: false
+      colour_value: false
     third_party_settings: {  }
     weight: 5
     region: content

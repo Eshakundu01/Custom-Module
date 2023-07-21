@@ -1,4 +1,4 @@
-uuid: 730dbccc-265f-4daa-8986-f9b4c7d1fd8d
+uuid: 4e8a9a18-f27f-4cc7-be17-bba041db3653
 langcode: en
 status: true
 dependencies:
@@ -12,7 +12,7 @@ type: colour
 settings: {  }
 module: chroma
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

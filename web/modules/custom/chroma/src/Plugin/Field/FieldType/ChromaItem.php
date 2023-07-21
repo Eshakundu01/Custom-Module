@@ -47,4 +47,12 @@ class ChromaItem extends FieldItemBase {
     return $properties;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function isEmpty() {
+    $value = $this->get('value')->getValue();
+    return $value === NULL || $value === '';
+  }
+
 }

@@ -25,9 +25,16 @@ class ChromaRgbWidget extends WidgetBase {
    */
   public function formElement(FieldItemListInterface $items, $delta, array $element, array &$form, FormStateInterface $form_state) {
 
-    $hex_value = isset($items[$delta]->value) ? $items[$delta]->value : '';
+    $hex_value = isset($items[$delta]->value) ? $items[$delta]->value : NULL;
 
-    $default_colour = isset($hex_value) ? $this->getDefaultValue($hex_value) : '';
+    if (isset($hex_value)) {
+      $default_colour = $this->getDefaultValue($hex_value);
+    }
+    else {
+      $default_colour['red'] = NULL;
+      $default_colour['green'] = NULL;
+      $default_colour['blue'] = NULL;
+    }
 
     $element += [
       '#type' => 'fieldset',
@@ -66,7 +73,10 @@ class ChromaRgbWidget extends WidgetBase {
    */
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     foreach ($values as &$colour) {
-      $colour['value'] = sprintf("#%02x%02x%02x", $colour['red'], $colour['green'], $colour['blue']);
+      // Incase input provide the value is converted into hexvalue.
+      if ($colour['red'] != "" && $colour['green'] != "" && $colour['blue'] != "") {
+        $colour['value'] = sprintf("#%02x%02x%02x", $colour['red'], $colour['green'], $colour['blue']);
+      }
     }
 
     return $values;
