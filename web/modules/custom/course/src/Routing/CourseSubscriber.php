@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @file
- * This file alters the existing route.
- */
 namespace Drupal\course\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
@@ -22,7 +18,6 @@ class CourseSubscriber extends RouteSubscriberBase {
     if ($route = $collection->get('course.access')) {
       $route->setRequirement('_role', 'administrator');
     }
-    
   }
 
 }

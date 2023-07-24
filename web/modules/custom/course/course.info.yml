@@ -1,5 +1,5 @@
 name: Route System Module
 type: module
-core_version_requirement: ^9 || ^10
+core_version_requirement: ^10
 description: 'Understand the routing system in a better way.'
 package: Custom

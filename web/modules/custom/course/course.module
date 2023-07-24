@@ -1,14 +1,18 @@
 <?php
 
 /**
+ * @file
+ * This file is used for implementing hooks.
+ */
+
+/**
  * Implements hook_theme().
  */
 function course_theme($existing, $type, $theme, $path) {
 
   return [
     'course_parameter' => [
-      'variables' => [ 'points' => NULL ],
+      'variables' => ['points' => NULL],
     ],
   ];
-  
 }
