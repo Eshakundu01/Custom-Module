@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Display dynamic variables passed in the route.
+ */
+#}
+<h1>Campaign in Routing</h1>
+<p>
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+  Similique doloribus eveniet culpa voluptates id nostrum dignissimos mollitia,
+  modi pariatur, ipsam iure qui earum eligendi voluptate.
+  Dolores ducimus saepe assumenda incidunt.
+</p>
+<span>The number passed is {{ points }}.</span>
+
+{% if points is divisible by(2) %}
+  <span>It is Even.</span>
+{% else %}
+  <span>It is Odd.</span>
+{% endif %}
+

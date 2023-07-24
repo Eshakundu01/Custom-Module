@@ -1,0 +1,16 @@
+course.access:
+  path: '/course'
+  defaults:
+    _controller: 'Drupal\course\Controller\CourseController::preview'
+  requirements:
+    _permission: 'access the custom page'
+    _role: 'administrator+editor'
+    _custom_access: 'Drupal\course\Controller\CourseController::access'
+
+course.dynamic:
+  path: '/campaign/value/{number}'
+  defaults:
+    _controller: 'Drupal\course\Controller\CourseController::content'
+  requirements:
+    _permission: 'access content'
+    number: \d+

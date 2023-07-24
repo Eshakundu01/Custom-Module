@@ -1,29 +1,23 @@
-uuid: 7263f143-18ff-4516-8268-d67e2517afb6
+uuid: 176753c0-6c55-4fd6-886e-be10e1baa6f9
 langcode: en
 status: true
 dependencies:
   config:
     - node.type.article
     - node.type.page
-    - taxonomy.vocabulary.tags
   module:
     - comment
     - contextual
     - course
     - file
-    - greet
     - node
-    - path
     - system
-    - taxonomy
     - toolbar
     - tour
-_core:
-  default_config_hash: Wur9kcEOwY1Jal81NssKnz3RhVJxAvBwyWQBGcA_1Go
-id: content_editor
-label: 'Content editor'
-weight: -7
-is_admin: false
+id: editor
+label: Editor
+weight: -8
+is_admin: null
 permissions:
   - 'access administration pages'
   - 'access content overview'
@@ -32,22 +26,12 @@ permissions:
   - 'access the custom page'
   - 'access toolbar'
   - 'access tour'
-  - 'add greet permission'
-  - 'administer url aliases'
   - 'create article content'
   - 'create page content'
-  - 'create terms in tags'
-  - 'create url aliases'
-  - 'delete article revisions'
   - 'delete own article content'
-  - 'delete own files'
   - 'delete own page content'
-  - 'delete page revisions'
   - 'edit own article content'
   - 'edit own comments'
   - 'edit own page content'
-  - 'edit terms in tags'
-  - 'revert all revisions'
   - 'view all revisions'
-  - 'view own unpublished content'
   - 'view the administration theme'
