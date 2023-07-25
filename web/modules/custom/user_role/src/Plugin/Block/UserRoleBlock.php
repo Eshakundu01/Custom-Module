@@ -41,7 +41,7 @@ class UserRoleBlock extends BlockBase implements ContainerFactoryPluginInterface
    * {@inheritdoc}
    */
   public function build() {
-    $role = join(",", $this->user->getRoles(TRUE));
+    $role = join(',', $this->user->getRoles(TRUE));
     return [
       '#markup' => $this->t('Welcome @roles', ['@roles' => $role]),
     ];

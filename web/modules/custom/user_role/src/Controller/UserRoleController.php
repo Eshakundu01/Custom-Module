@@ -1,16 +1,11 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\user_role\Controller\UserRoleController.
- */
-
 namespace Drupal\user_role\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 
 /**
- * Returns the route for the course module.
+ * Returns the route for the user_role module.
  */
 class UserRoleController extends ControllerBase {
 
