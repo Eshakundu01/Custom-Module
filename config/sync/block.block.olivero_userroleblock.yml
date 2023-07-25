@@ -1,0 +1,25 @@
+uuid: 29855f4e-0784-4d05-b177-6cdd6116e724
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+    - user_role
+  theme:
+    - olivero
+id: olivero_userroleblock
+theme: olivero
+region: highlighted
+weight: -3
+provider: null
+plugin: user_role_block
+settings:
+  id: user_role_block
+  label: 'Greet Role'
+  label_display: visible
+  provider: user_role
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /custom-welcome-page
