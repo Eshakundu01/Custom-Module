@@ -13,6 +13,7 @@ class UserRoleController extends ControllerBase {
    * Displays a page according to the render array.
    *
    * @return array
+   *   The markup content is returned.
    */
   public function content() {
     return [

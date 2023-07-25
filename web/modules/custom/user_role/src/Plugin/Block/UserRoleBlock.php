@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * This creates a custom block.
- */
-
 namespace Drupal\user_role\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
