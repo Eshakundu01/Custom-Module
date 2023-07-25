@@ -74,8 +74,8 @@ class ChromaRgbWidget extends WidgetBase {
   public function massageFormValues(array $values, array $form, FormStateInterface $form_state) {
     foreach ($values as &$colour) {
       // Incase input provide the value is converted into hexvalue.
-      if ($colour['red'] != "" && $colour['green'] != "" && $colour['blue'] != "") {
-        $colour['value'] = sprintf("#%02x%02x%02x", $colour['red'], $colour['green'], $colour['blue']);
+      if ($colour['red'] != '' && $colour['green'] != '' && $colour['blue'] != '') {
+        $colour['value'] = sprintf('#%02x%02x%02x', $colour['red'], $colour['green'], $colour['blue']);
       }
     }
 

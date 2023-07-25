@@ -92,7 +92,7 @@ class ChromaTextFormatter extends FormatterBase {
     $green = hexdec(substr($hex, 2, 2));
     $blue = hexdec(substr($hex, 4, 2));
 
-    $result = "rgb(" . $red . ", " . $green . ", " . $blue . ")";
+    $result = 'rgb(' . $red . ', ' . $green . ', ' . $blue . ')';
 
     return $result;
   }
