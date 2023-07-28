@@ -1,0 +1,15 @@
+field.formatter.settings.chroma_text:
+  type: mapping
+  label: 'Text formatter settings'
+  mapping:
+    colour_value:
+      type: boolean
+      label: 'Colour value representation'
+
+field.formatter.settings.chroma_background:
+  type: mapping
+  label: 'Background formatter settings'
+  mapping:
+    rgb_value:
+      type: boolean
+      label: 'RGB representation'
