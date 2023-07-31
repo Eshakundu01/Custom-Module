@@ -1,0 +1,16 @@
+uuid: 1017184d-19e9-486f-b4ca-d35cc76e39af
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - cinema
+_core:
+  default_config_hash: e1vH8MFJum3YptqK-n9aTL8MkYkP_hkctykRqH0wdZo
+name: Movie
+type: movie
+description: 'Movie related fields and settings are stored.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

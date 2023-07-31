@@ -1,0 +1,12 @@
+langcode: en
+dependencies:
+  enforced:
+    module:
+    - cinema
+name: 'Movie'
+type: movie
+description: 'Movie related fields and settings are stored.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

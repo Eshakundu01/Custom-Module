@@ -1,0 +1,5 @@
+name: Movie Module
+type: module
+core_version_requirement: ^10
+description: 'The entity api features are present here.'
+package: Custom
