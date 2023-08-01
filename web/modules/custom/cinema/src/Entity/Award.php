@@ -62,7 +62,7 @@ class Award extends ConfigEntityBase implements AwardInterface {
   protected $label;
 
   /**
-   * The movie that won the award.
+   * The movie name id that won the award.
    *
    * @var int
    */

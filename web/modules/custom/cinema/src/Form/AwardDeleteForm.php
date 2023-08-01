@@ -7,7 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Builds the form to delete an Example.
+ * Builds the form to delete an Award winner.
  */
 class AwardDeleteForm extends EntityConfirmFormBase {
 

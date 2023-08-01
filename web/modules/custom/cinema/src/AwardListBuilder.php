@@ -6,9 +6,9 @@ use Drupal\Core\Config\Entity\ConfigEntityListBuilder;
 use Drupal\Core\Entity\EntityInterface;
 
 /**
- * Provides a listing of award won bies.
+ * Provides a listing of award winners.
  */
-final class AwardListBuilder extends ConfigEntityListBuilder {
+class AwardListBuilder extends ConfigEntityListBuilder {
 
   /**
    * {@inheritdoc}

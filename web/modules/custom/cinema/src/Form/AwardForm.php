@@ -27,7 +27,7 @@ class AwardForm extends EntityForm {
   protected $awardStorage;
 
   /**
-   * Constructs a base class for cinema add and edit forms.
+   * Constructs a base class for award add and edit forms.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $awards
    *   The awards entity storage.
@@ -100,7 +100,7 @@ class AwardForm extends EntityForm {
   }
 
   /**
-   * Helper function to check whether an Cinema configuration entity exists.
+   * Helper function to check whether an award configuration entity exists.
    */
   public function exist($id) {
     $entity = $this->awardStorage->getStorage('awards')->getQuery()
