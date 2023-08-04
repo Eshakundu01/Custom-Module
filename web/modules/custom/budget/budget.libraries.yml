@@ -1,0 +1,4 @@
+budget:
+  css:
+    theme:
+      css/budget.icons.theme.css: {}

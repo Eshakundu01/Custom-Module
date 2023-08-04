@@ -1,0 +1,6 @@
+budget.admin_budget:
+  title: Budget
+  description: 'Decides a amount for making a movie.'
+  route_name: budget.admin_budget
+  parent: system.admin
+  weight: 6

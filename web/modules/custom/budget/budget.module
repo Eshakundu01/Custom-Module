@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks in this file.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function budget_toolbar_alter(&$items) {
+  $items['administration']['#attached']['library'][] = 'budget/budget';
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function budget_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  $config = \Drupal::config('budget.settings');
+  $cost = $config->get('movie_budget');
+  if ($entity->bundle() === 'movie') {
+    $movie_price = $entity->get('field_movie_price')->value;
+
+    if ($cost > $movie_price) {
+      $message = 'The movie is under budget.';
+    }
+    elseif ($cost < $movie_price) {
+      $message = 'The movie is over budget.';
+    }
+    else {
+      $message = 'The movie is within budget.';
+    }
+
+    $build['estimate'] = [
+      '#markup' => '<p>' . t('@budget', ['@budget' => $message]) . '</p>',
+      '#cache' => [
+        'tags' => [
+          'config:budget.settings',
+        ],
+      ],
+    ];
+  }
+}

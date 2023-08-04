@@ -1,0 +1,7 @@
+budget.admin_budget:
+  path: '/admin/budget'
+  defaults:
+    _form: '\Drupal\budget\Form\BudgetForm'
+    _title: 'Budget Setter'
+  requirements:
+    _role: 'administrator+content_editor'
