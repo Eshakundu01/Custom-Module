@@ -1,0 +1,15 @@
+cinema.awards.*:
+  type: config_entity
+  label: 'Award Won By'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    name:
+      type: integer
+      label: 'Movie Name ID'
