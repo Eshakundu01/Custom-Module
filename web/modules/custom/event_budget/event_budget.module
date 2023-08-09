@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Implements hooks in this file.
+ */
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function event_budget_toolbar_alter(&$items) {
+  $items['administration']['#attached']['library'][] = 'event_budget/event_budget';
+}

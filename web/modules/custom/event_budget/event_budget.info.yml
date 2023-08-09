@@ -1,0 +1,5 @@
+name: Cinema Budget Estimator Events
+type: module
+core_version_requirement: ^10
+package: Custom
+description: 'Implements Events by coverting the menu task.'

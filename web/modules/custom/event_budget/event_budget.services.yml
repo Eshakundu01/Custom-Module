@@ -1,0 +1,6 @@
+services:
+  budget_events_subscriber:
+    class: Drupal\event_budget\EventSubscriber\BudgetEventSubscriber
+    arguments: [ '@config.factory', '@messenger', '@current_route_match' ]
+    tags:
+      - { name: event_subscriber }

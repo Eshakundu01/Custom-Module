@@ -1,0 +1,24 @@
+uuid: 6dd0450c-1080-47db-b658-57ec3c89306c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.movie
+_core:
+  default_config_hash: C6SayepUtsDMlL5j4jZJfWhE-Av0rkOBvk_-MqTtK5k
+id: node.movie.promote
+field_name: promote
+entity_type: node
+bundle: movie
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

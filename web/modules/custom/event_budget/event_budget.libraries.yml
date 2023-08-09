@@ -1,0 +1,4 @@
+event_budget:
+  css:
+    theme:
+      css/event_budget.icons.theme.css: {}
